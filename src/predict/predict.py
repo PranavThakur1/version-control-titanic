@@ -22,7 +22,11 @@ output = pd.DataFrame({
     "PassengerId": test_data["PassengerId"],
     "Survived": predictions
 })
-os.makedirs("outputs", exist_ok=True)
-output.to_csv("outputs/predictions.csv", index=False)
+#os.makedirs("outputs", exist_ok=True)
+#output.to_csv("outputs/predictions.csv", index=False)
+
+os.makedirs("prediction", exist_ok=True)
+output.to_csv("prediction/output.csv", index=False)
+
 
 print("✅ Predictions saved to outputs/predictions.csv")

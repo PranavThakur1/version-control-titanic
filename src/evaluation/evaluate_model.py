@@ -3,8 +3,17 @@ import pandas as pd
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 import yaml
-import os
 import json
+import os
+
+import os  # Add this line
+import json
+import pickle
+import pandas as pd
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
+import yaml
+
 
 # Load params
 with open("params.yaml") as f:
@@ -26,7 +35,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, r
 with open("models/model.pkl", "rb") as f:
     model = pickle.load(f)
 
-# Evaluate
 # Evaluate
 y_pred = model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
