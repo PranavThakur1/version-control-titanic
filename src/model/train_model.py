@@ -3,7 +3,10 @@ import pandas as pd
 import os
 import pickle
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
+#from sklearn.ensemble import RandomForestClassifier
+from sklearn.tree import DecisionTreeClassifier
+
+
 
 # Load parameters
 with open("params.yaml") as f:
@@ -26,7 +29,8 @@ y = train_data["Survived"]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
 
 # Train model
-model = RandomForestClassifier(random_state=random_state)
+#model = RandomForestClassifier(random_state=random_state)
+model = DecisionTreeClassifier(random_state=random_state)
 model.fit(X_train, y_train)
 
 # Save model
